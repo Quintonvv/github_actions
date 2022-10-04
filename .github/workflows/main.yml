@@ -1,3 +1,5 @@
+name: "Build & Release"
+
 on: 
   pull_request:
     branches:
@@ -9,7 +11,7 @@ on:
       - main
       - master
       - develop
-name: "Build & Release"
+
 jobs:
   build:
     name: Build & Release
@@ -28,6 +30,6 @@ jobs:
       - name: Push to Release
         uses: ncipollo/release-action@v1
         with:
-        artifacts: "build/app/outputs/apk/debug/*"
-        tag: v1.0.${{ github.run_number }}
-        token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: "build/app/outputs/apk/debug/*"
+          tag: v1.0.${{ github.run_number }}
+          token: ${{ secrets.GITHUB_TOKEN }}
